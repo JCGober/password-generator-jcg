@@ -22,9 +22,9 @@
 
         //Prompt user "Do you need a password?"
 
-        var start = confirm("I am Computalf. Do you need a new secure password?")
+        var start = confirm("I am Computalf. Do you need a new secure password?");
         
-        var generate
+        var generate;
 
         if(start === true){
             var generate = confirm("Press OK to generate password")
@@ -35,13 +35,63 @@
         //Ask series of different password requirements which include:
         // Lowercase? uppercase? numeric? special?
 
-        var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] 
+        var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-        var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-        var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-        var special = ["!", "@", "#", "$", "?", "*", ".", ","]
+        var special = ["!", "@", "#", "$", "?", "*", ".", ","];
+
+        var charactersSelected = []
+
+        var numberOfChar;
+
+        var charArray= []
+
+        if(generate === true){
+
+        var numberOfChar = parseInt(prompt("How many characters do you need in your new password?"))
+
+            if (confirm("Do you need lowercase characters?")){
+                charactersSelected.push(lowerCase)
+            }
+
+            if (confirm("Do you need uppercase characters?")){
+                charactersSelected.push(upperCase)
+            }
+
+            if (confirm("Do you need numeric characters?")){
+                charactersSelected.push(numeric)
+            }
+
+            if (confirm("Do you need special characters?")){
+                charactersSelected.push(special)
+            }
+
+            for(var i=0; i< numberOfChar; i++){
+
+                var randomCharacter = Math.floor(Math.random()* charactersSelected.length) 
+
+                var randomCharPick = Math.floor(Math.random()*charactersSelected[randomCharacter].length)
+
+                var char = charactersSelected[randomCharacter][randomCharPick]
+
+                charArray.push(char)
+
+            }
+
+            var stringpw = charArray.join("")
+
+            alert("Your new password is(  " + stringpw + "  ). If you want a different password refresh the page." )
+        
+
+
+
+
+        }
+
+
 
 
         //input should be verified
